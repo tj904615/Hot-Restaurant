@@ -15,6 +15,33 @@ var tables = [];
 
 var waitingList = [];
 
+// ------------------------------- Routes -----------------------------------------------------
+
+// Home Page
+app.get("/",function(req,res){
+    res.sendFile(path.join(__dirname, "home.html"));
+});
+
+// Tables and Wailtinglist Page
+app.get("/tables",function(req,res){
+    res.sendFile(path.join(__dirname, "tables.html"));
+});
+
+// Create reservation Page
+app.get("/reserve",function(req,res){
+    res.sendFile(path.join(__dirname, "reserve.html"));
+});
+
+// Get tables back in Json format
+app.get("/api/tables",function(req,res){
+    return res.json(tables);
+});
+
+// Gets waitinglist back in json format
+app.get("/api/waitlist",function(req,res){
+    return res.json(waitingList);
+});
+
 // starts listening on server
 app.listen(PORT, function(){
     console.log("App listening on port " + PORT);
