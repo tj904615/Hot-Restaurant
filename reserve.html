@@ -75,6 +75,28 @@
 	    </footer>
 
 	</div>
+  
+  <script>
+    // JQUERY FOR RESERVATIONS PAGE - SLF
+
+      $(".submit").on("click", function(event){
+        event.preventDefault();
+
+          var newReservation = {
+              custName: $("#reserve_name").val().trim(),
+              custPhone: $("#reserve_phone").val().trim(),
+              custEmail: $("#reserve_email").val().trim(),
+              uniqueID: $("#reserve_uniqueID").val().trim()
+          };
+          $.post("/api/reservations", newReservation)
+            .then(function(data){
+              console.log(data);
+              alert("Adding Reservation ... ");
+            });
+          console.log(newReservation);
+          alert("Your reservation has been confirmed ... you fancy bitch.")
+      });
+  </script>
 
 </body>
 </html>
