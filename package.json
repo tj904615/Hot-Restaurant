@@ -18,6 +18,7 @@
   "homepage": "https://github.com/tj904615/Hot-Restaurant#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "exprss": "0.0.1-security"
+    "exprss": "0.0.1-security",
+    "path": "^0.12.7"
   }
 }
