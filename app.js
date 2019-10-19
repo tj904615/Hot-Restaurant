@@ -37,6 +37,19 @@ app.get("/api/tables",function(req,res){
     return res.json(tables);
 });
 
+app.post("/api/reserve",function(req,res){
+    var newReservation = req.body
+    console.log(newReservation);
+    if (tables.length < 5){
+        tables.push(newReservation);
+    }
+    else{
+        waitingList.push(newReservation);
+    }
+    res.json(newReservation);
+});
+
+
 // Gets waitinglist back in json format
 app.get("/api/waitlist",function(req,res){
     return res.json(waitingList);
@@ -46,3 +59,6 @@ app.get("/api/waitlist",function(req,res){
 app.listen(PORT, function(){
     console.log("App listening on port " + PORT);
 })
+
+
+// console.log(tables);
